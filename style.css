@@ -1,0 +1,267 @@
+:root {
+  --bg: #08080c;
+  --bg-soft: #12131a;
+  --bg-panel: rgba(15, 15, 21, 0.84);
+  --text: #f7f1e5;
+  --muted: rgba(240, 231, 216, 0.76);
+  --line: rgba(255, 255, 255, 0.10);
+
+  --gold: #d4af37;
+  --gold-strong: #f1c75b;
+  --gold-soft: rgba(212, 175, 55, 0.18);
+
+  --shadow: 0 28px 70px rgba(0, 0, 0, 0.45);
+
+  --radius-xl: 32px;
+  --radius-lg: 24px;
+  --radius-md: 18px;
+
+  --max-width: 1240px;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: "Manrope", sans-serif;
+  background: #050505;
+  color: var(--text);
+  overflow-x: hidden;
+}
+
+/* =======================
+   GLOBAL
+======================= */
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+.section {
+  width: min(calc(100% - 2rem), var(--max-width));
+  margin: auto;
+  padding: 80px 0;
+}
+
+h1, h2, h3 {
+  font-family: "Sora", sans-serif;
+}
+
+.button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 14px 28px;
+  border-radius: 12px;
+  font-weight: 700;
+  transition: 0.3s;
+}
+
+.button-primary {
+  background: var(--gold);
+  color: #111;
+}
+
+.button-primary:hover {
+  transform: translateY(-3px);
+  background: var(--gold-strong);
+}
+
+/* =======================
+   HERO
+======================= */
+
+.hero {
+  position: relative;
+  min-height: 100vh;
+  overflow: hidden;
+}
+
+/* OVDJE JE TVOJA NOVA POZADINA */
+.hero-stage {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  background:
+    linear-gradient(rgba(0,0,0,0.55), rgba(0,0,0,0.75)),
+    url("assets/dl-vozilo.png") center center/cover no-repeat;
+}
+
+/* koristi ovu sliku koju si poslao:
+   preimenuj je u dl-vozilo.png i stavi u assets folder */
+
+.hero-content {
+  position: relative;
+  z-index: 2;
+  width: min(calc(100% - 2rem), var(--max-width));
+  margin: auto;
+}
+
+.hero-copy {
+  max-width: 700px;
+}
+
+.hero h1 {
+  font-size: clamp(2rem, 5vw, 4rem);
+  line-height: 1.1;
+  margin-bottom: 20px;
+}
+
+.hero p {
+  color: var(--muted);
+  font-size: 1.05rem;
+  margin-bottom: 30px;
+}
+
+/* =======================
+   NAVBAR
+======================= */
+
+.topbar {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 99;
+  padding: 25px 40px;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.brand-logo {
+  height: 70px;
+  width: auto;
+}
+
+.topbar-links {
+  display: flex;
+  gap: 30px;
+}
+
+.topbar-links a {
+  font-weight: 600;
+  color: #fff;
+  transition: 0.3s;
+}
+
+.topbar-links a:hover {
+  color: var(--gold);
+}
+
+/* =======================
+   CARDS
+======================= */
+
+.service-grid,
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 24px;
+}
+
+.service-card,
+.project-card,
+.contact-card {
+  background: rgba(15, 15, 20, 0.95);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  box-shadow: var(--shadow);
+  transition: 0.3s;
+}
+
+.service-card:hover,
+.project-card:hover {
+  transform: translateY(-6px);
+  border-color: var(--gold);
+}
+
+.card-image,
+.project-card img {
+  width: 100%;
+  height: 240px;
+  object-fit: cover;
+}
+
+.card-body,
+.project-caption {
+  padding: 24px;
+}
+
+.project-caption p,
+.card-body p {
+  color: var(--muted);
+  margin-top: 10px;
+}
+
+/* =======================
+   CONTACT
+======================= */
+
+.contact-card {
+  padding: 30px;
+}
+
+.contact-person {
+  padding: 18px;
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  margin-top: 16px;
+}
+
+.contact-role {
+  color: var(--gold);
+  margin: 8px 0;
+}
+
+.contact-link {
+  display: block;
+  margin-top: 8px;
+  color: #fff;
+}
+
+.contact-link:hover {
+  color: var(--gold);
+}
+
+/* =======================
+   RESPONSIVE
+======================= */
+
+@media (max-width: 768px) {
+  .topbar {
+    padding: 20px;
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .topbar-links {
+    gap: 16px;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .hero h1 {
+    font-size: 2rem;
+  }
+
+  .section {
+    padding: 60px 0;
+  }
+}
